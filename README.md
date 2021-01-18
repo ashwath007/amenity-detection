@@ -1,2 +1,2 @@
-# aminity-detection
-aminity-detection
+# amenity-detection
+amenity-detection
