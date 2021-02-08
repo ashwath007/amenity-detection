@@ -158,6 +158,10 @@ Project Link: [https://github.com/ashwath007/aminity-detection](https://github.c
 ## Reference
 
   * https://arxiv.org/pdf/1512.02325.pdf
+  * https://github.com/facebookresearch/maskrcnn-benchmark
+  * https://research.fb.com/publications/mask-r-cnn/
+  * http://densepose.org/
+  * https://arxiv.org/abs/1901.02446
 
 
 <!-- ACKNOWLEDGEMENTS -->
