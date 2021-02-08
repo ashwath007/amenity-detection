@@ -11,7 +11,7 @@
   <h3 align="center">Amenity Detection</h3>
   <h5 align='center'>SSD and Dectron2</h5>
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Just an API to find amenities!!! 
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
