@@ -1,11 +1,4 @@
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -15,8 +8,8 @@
     <img src="./logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
-
+  <h3 align="center">Amenity Detection</h3>
+  <h5 align='center'>SSD and Dectron2</h5>
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
