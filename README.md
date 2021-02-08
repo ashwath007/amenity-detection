@@ -155,6 +155,10 @@ Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.c
 Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 
+## Reference
+
+  * https://arxiv.org/pdf/1512.02325.pdf
+
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
