@@ -23,29 +23,50 @@ const PendingView = () => {
 }
 
 
-
 const App = () => {
 
   const [image, setimage] = useState(null);
-
-  const takePicture = async (camera) => {
-    try{
-      const options = {quality: 0.9, base64: false}
-      const data = await camera.takePictureAsync(options)
-      console.log(data);
-      setimage(data.uri); 
-    }
-    catch(err){
-      console.warn(err);
-    }
-  }
-
+  takePicture = async function(camera) {
+    const options = { quality: 0.5, base64: false };
+    const data = await camera.takePictureAsync(options);
+    //  eslint-disable-next-line
+    console.log(data.uri);
+    console.log(data);
+    setimage(data.uri);
+  };
+  
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView style="styles.container">
+    <View style={styles.container}>
+      {image ? (
+        <View style={styles.boxss}>
+
+<Text style={styles.textcap}>Image is present</Text>
+
+          </View>
+        ) : (
+        <RNCamera
+          style={styles.preview}
+          type={RNCamera.Constants.Type.back}
+        >
+          {({ camera, status }) => {
+            if (status !== 'READY') return <PendingView />;
+            return (
+              <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => takePicture(camera)} style={styles.capture}>
+                  <Text style={{ fontSize: 14 }}> SNAP </Text>
+                </TouchableOpacity>
+              </View>
+            );
+          }}
+        </RNCamera>
+        )}
+      </View>
+
+    // <>
+      // <StatusBar barStyle="dark-content" />
+
         
-      <View>
+      /* <View>
         <Text>
           Cam App
         </Text>
@@ -55,55 +76,63 @@ const App = () => {
           <Text>Image is present</Text>
         ) : (
 
-          <RNCamera 
+          <RNCamera
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
-          captureAudio={false}
-          flashMode={RNCamera.Constants.FlashMode.on}
-          androidCameraPermissionOptions={{
-            title: "Permission to use camera",
-            message: "CameApp to use your camera",
-            buttonPositive:'OK',
-            buttonNegative:'Cancel'
+        >
+          {({ camera, status}) => {
+            if (status !== 'READY') return <PendingView />;
+            return (
+              <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => takePicture(camera)} style={styles.capture}>
+                  <Text style={{ fontSize: 14 }}> SNAP </Text>
+                </TouchableOpacity>
+              </View>
+            );
           }}
-          androidRecordAudioPermissionOptions={{
-            title: "Permission to use audio",
-            message: "CameApp to use your audio",
-            buttonPositive:'OK',
-            buttonNegative:'Cancel'
-
-          } 
-          }
-          >
-              { ({camera, status}) => {
-
-                  if(status != 'Ready') return <PendingView/>
-              }}
-          </RNCamera>
+        </RNCamera>
 
         )}
-      </View>
+      </View> */
 
 
-      </SafeAreaView>
-    </>
+      
+    // </>
   );
+
+  
 };
 
+
+
+
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    flexDirection:'column',
-    backgroundColor:'#0A79DF'
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'black',
   },
-  status:{
-    justifyContent:'center',
-    alignItems:'center'
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginTop:52
   },
-  preview:{
-    flex:1,
-    justifyContent:'space-around',
-    alignItems:'center'
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    marginTop:105,
+    padding: 15,
+    paddingHorizontal: 20,
+    alignSelf: 'center',
+    margin: 20,
+  },
+  textcap:{
+    color:'white'
+  },
+  boxss:{
+    backgroundColor:'#BF3325'
   }
 });
 
