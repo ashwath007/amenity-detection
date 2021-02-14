@@ -23,7 +23,6 @@ const PendingView = () => {
   )
 }
 
-
 const App = () => {
 
   const [image, setimage] = useState(null);
@@ -39,10 +38,17 @@ const App = () => {
   return (
     <View style={styles.container}>
       {image ? (
-        <View>
+        <View style={{justifyContent:'center',alignItems:'center',marginTop:65}}>
 
 <Text style={styles.camtext}>Here is your pic for amenity detction</Text>
-        <Image source={{uri:image,width:'100%',height:'80%'}}/>
+        <Image source={{uri:image,width:'100%',height:'80%'}} style={styles.clicked}/>
+        <TouchableOpacity style={{marginTop:150,backgroundColor:'white',padding:10,borderRadius:15,color:'orange'}} 
+        onPress={()=>{setimage(null)}}
+        >
+          <Text>
+            Take Other
+          </Text>
+        </TouchableOpacity>
           </View>
         ) : (
         <RNCamera
