@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Button,
   StatusBar,
+  Image
 } from 'react-native';
 
 
@@ -38,10 +39,10 @@ const App = () => {
   return (
     <View style={styles.container}>
       {image ? (
-        <View style={styles.boxss}>
+        <View>
 
-<Text style={styles.textcap}>Image is present</Text>
-
+<Text style={styles.camtext}>Here is your pic for amenity detction</Text>
+        <Image source={{uri:image,width:'100%',height:'80%'}}/>
           </View>
         ) : (
         <RNCamera
@@ -133,6 +134,20 @@ const styles = StyleSheet.create({
   },
   boxss:{
     backgroundColor:'#BF3325'
+  },
+  camtext: {
+    backgroundColor:"#3498D8",
+    color: "#FFFFFF",
+    marginBottom:10,
+    width:"100%",
+    textAlign: "center",
+    paddingVertical:20,
+    fontSize: 25
+  },
+  clicked: {
+    width:300,
+    height: 300,
+    borderRadius: 150
   }
 });
 
