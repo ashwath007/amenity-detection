@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 
 
-const pendingView = () => {
+const PendingView = () => {
   return(
     <View style={{flex:1 ,justifyContent:'center',alignItems:'center'}}>
       <Text>
@@ -77,7 +77,7 @@ const App = () => {
           >
               { ({camera, status}) => {
 
-                
+                  if(status != 'Ready') return <PendingView/>
               }}
           </RNCamera>
 
