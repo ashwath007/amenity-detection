@@ -33,7 +33,7 @@ const App = () => {
       const options = {quality: 0.9, base64: false}
       const data = await camera.takePictureAsync(options)
       console.log(data);
-      setimage(data.uri);
+      setimage(data.uri); 
     }
     catch(err){
       console.warn(err);
@@ -43,12 +43,45 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <SafeAreaView style="styles.container">
         
       <View>
         <Text>
           Cam App
         </Text>
+      </View>
+      <View style={styles.status}>
+        {image ? (
+          <Text>Image is present</Text>
+        ) : (
+
+          <RNCamera 
+          style={styles.preview}
+          type={RNCamera.Constants.Type.back}
+          captureAudio={false}
+          flashMode={RNCamera.Constants.FlashMode.on}
+          androidCameraPermissionOptions={{
+            title: "Permission to use camera",
+            message: "CameApp to use your camera",
+            buttonPositive:'OK',
+            buttonNegative:'Cancel'
+          }}
+          androidRecordAudioPermissionOptions={{
+            title: "Permission to use audio",
+            message: "CameApp to use your audio",
+            buttonPositive:'OK',
+            buttonNegative:'Cancel'
+
+          } 
+          }
+          >
+              { ({camera, status}) => {
+
+                
+              }}
+          </RNCamera>
+
+        )}
       </View>
 
 
@@ -58,7 +91,20 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  
+  container:{
+    flex:1,
+    flexDirection:'column',
+    backgroundColor:'#0A79DF'
+  },
+  status:{
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  preview:{
+    flex:1,
+    justifyContent:'space-around',
+    alignItems:'center'
+  }
 });
 
 export default App;
